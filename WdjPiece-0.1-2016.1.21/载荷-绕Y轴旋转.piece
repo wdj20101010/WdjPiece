@@ -1,0 +1,17 @@
+//         | (Y轴)
+//         |
+//         |_____ (X轴)
+//       ／
+//    ／ (Z轴)
+//载荷绕Y轴旋转变换
+Fx=    Fy=    Fz=
+Mx=    My=    Mz=
+θ=
+//计算
+newFx=Fx*cos(θ)-Fz*sin(θ)
+newFy=Fy
+newFz=Fz*cos(θ)+Fx*sin(θ)
+newMx=Mx*cos(θ)-Mz*sin(θ)
+newMy=My
+newMz=Mz*cos(θ)+Mx*sin(θ)
+result{newFx newFy newFz newMx newMy newMz}
