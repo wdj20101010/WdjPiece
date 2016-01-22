@@ -1,0 +1,17 @@
+//         | (Y轴)
+//         |
+//         |_____ (X轴)
+//       ／
+//    ／ (Z轴)
+//载荷平移变换
+Fx=    Fy=    Fz=
+Mx=    My=    Mz=
+X=     Y=     Z=
+//计算
+newFx=Fx
+newFy=Fy
+newFz=Fz
+newMx=Mx+Fy*Z-Fz*Y
+newMy=My-Fx*Z+Fz*X
+newMz=Mz+Fx*Y-Fy*X
+result{newFx newFy newFz newMx newMy newMz}
