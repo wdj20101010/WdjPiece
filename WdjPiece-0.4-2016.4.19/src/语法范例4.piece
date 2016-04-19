@@ -1,0 +1,15 @@
+//执行外部程序
+main=proce{
+  abc="javaw -jar "
+  def=".jar"
+  是否继续=true
+  while(是否继续){
+    enter{
+      执行文件=
+      是否继续=
+    }
+    this=stradd(abc,执行文件)
+    this=stradd(this,def)
+    this=run(this)
+  }
+}
