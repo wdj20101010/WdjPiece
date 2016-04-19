@@ -1,0 +1,10 @@
+//等待执行,与其它程序协作
+main=proce{
+  IsRun=false
+  while(!IsRun){
+    entfrom(RelevantFile.txt){IsRun}
+    this=wait(5000)
+    //等待其它程序修改RelevantFile.txt中的IsRun=true
+  }
+  result{IsRun}
+}
