@@ -1,0 +1,23 @@
+main=proce{
+  enter{  //多个载荷变换组合至坐标元点
+  //载荷个数
+  N=
+  //载荷坐标
+  X.1=    Y.1=    Z.1=
+  X.2=    Y.2=    Z.2=
+  X.3=    Y.3=    Z.3=
+  //载荷数值
+  Fx.1=     Fy.1=     Fz.1=    Mx.1=    My.1=    Mz.1=
+  Fx.2=     Fy.2=     Fz.2=    Mx.2=    My.2=    Mz.2=
+  Fx.3=     Fy.3=     Fz.3=    Mx.3=    My.3=    Mz.3=}
+  //计算
+  i=0  Fx.0=0  Fy.0=0  Fz.0=0  Mx.0=0  My.0=0  Mz.0=0
+  while(i<N){
+    i=i+1  X=-1*X.index(i)  Y=-1*Y.index(i)  Z=-1*Z.index(i)
+    Fx.0=Fx.0+Fx.index(i)  Fy.0=Fy.0+Fy.index(i)  Fz.0=Fz.0+Fz.index(i)
+    Mx.0=Mx.0+Mx.index(i)+Fy.index(i)*Z-Fz.index(i)*Y
+    My.0=My.0+My.index(i)-Fx.index(i)*Z+Fz.index(i)*X
+    Mz.0=Mz.0+Mz.index(i)+Fx.index(i)*Y-Fy.index(i)*X
+  }
+  result{Fx.0 Fy.0 Fz.0 Mx.0 My.0 Mz.0}
+}
