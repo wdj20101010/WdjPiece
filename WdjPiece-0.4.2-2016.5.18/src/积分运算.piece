@@ -1,0 +1,27 @@
+main=proce{
+  enter{//替换输入f(X.1,X.2,X.3,...)为要积分的函数式
+//N为函数式中变量的个数
+//X.begin.i为变量的积分初值
+//X.end.i为变量的积分末值
+//X.step.i为变量的积分步长
+
+积分="this=f(X.1,X.2,X.3,...)"
+N=
+X.begin.1=  X.end.1=  X.step.1=
+X.begin.2=  X.end.2=  X.step.2=
+X.begin.3=  X.end.3=  X.step.3=
+  }
+  结果=0  DX=1  i=1
+  while(i<=N){DX=DX*X.step.index(i) i=i+1}
+  this=运算(1)
+  result{结果}
+}
+运算=funct(n){
+  this=0
+  X.index(n)=X.begin.index(n)
+  while(X.index(n)<X.end.index(n)){
+    if(n<N){this=运算(n+1)}
+    if(n==N){结果=结果+runcode(积分)*DX}
+    X.index(n)=X.index(n)+X.step.index(n)
+  }
+}
