@@ -1,0 +1,27 @@
+main=proce{todo{a}}
+//输入直角坐标
+a=piece{
+  X=0 Y=0
+  this=proce{
+    enter{this.X=    this.Y=}
+    b.X=this.X b.Y=this.Y
+    todo{b}
+  }
+}
+//转化为极坐标
+b=piece{
+  X=0 Y=0 R=0 θ=0
+  b1=funct(x,y){this=(x^2+y^2)^0.5}
+  b2=funct(x,y){
+    this=atan(y/x)
+    if(x<0){this=this+180}
+    if(x>0&y<0){this=this+360}
+  }
+  this=proce{
+    this.R=this.b1(this.X,this.Y)
+    this.θ=this.b2(this.X,this.Y)
+    todo{c}
+  }
+}
+//输出直角坐标和极坐标
+c=proce{result{a.X a.Y b.R b.θ}}
