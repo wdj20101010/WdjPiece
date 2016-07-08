@@ -1,0 +1,61 @@
+WdjPiece  0.4.3  2016.7.6
+1.调整 任意函数abc()包括runcode()函数,可使用this.xxx=yyy返回语句,
+       yyy是元素时,此函数名所指代和包含的元素不会被替换掉,
+       调用时需使用abc().xxx或runcode().xxx
+2.注意 函数作为算式的一部分,只能返回布值 数值 字符串值
+
+WdjPiece  0.4.2  2016.5.18
+1.修复 多参数函数不能作为另一函数的参数.
+2.修复 if和while语句的()中不能使用index函数.
+3.调整 函数参数的赋值.
+4.注意 不能将子元素赋值给父元素,如 X.a=X.a.b
+
+WdjPiece  0.4.1  2016.4.28
+1.注意 注释中不能包含" "双引号.
+2.注意 多参数函数,不能作为另一函数的参数.
+3.注意 函数中的返回语句this=xxx,如果xxx是元素,而不是具体的值或算式,
+       则此函数名所指代和包含的元素均被替换.
+4.修复 include{}语句错误.
+5.增加 runcode(str)函数,执行存于变量中的代码段,代码段中包含this=xxx语句可返回值.
+
+WdjPiece  0.4  2016.4.19
+1.注释 //之后为注释内容
+2.保留字 include enter entfrom result resulto if while todo
+         sin cos tan asin acos atan ln strlen strind strequ stradd strsub
+         true false piece proce funct super this index run wait main
+3.保留符 + - * / ^ > < = & | ! . , " ( ) [ ] { }
+4.元素 出现在=左端的字符串,可同时指代一个片段 一个过程 一个函数 一个变量
+  片段 abc=piece{} //作为模块和容器,内部可包含别的片段 过程 函数 变量
+  过程 abc=proce{} //不返回的执行段,使用todo{}语句接力执行
+  函数 abc=funct(){} //会返回的执行段,被调用执行,使用this=xxx语句,返回值在同名变量中
+  变量 abc=布值 数值 字符串值 //一个变量可同时包含三种类型的值
+5.控制语句
+  代码引入语句 include{源码文件1 源码文件2 ...}
+  输入输出语句 enter{注释及含待赋值变量的代码段}  entfrom(文件名){变量1 变量2...}
+              result{变量1 变量2...}  resulto(文件名){变量1 变量2...}
+  流程控制语句 if(条件算式){执行语句}  while(条件算式){循环语句}
+  过程控制语句 todo{下个要执行的过程}
+6.等式语句
+  元素=布值 数值 字符串值 //作为变量直接赋值
+  元素1=元素2 //将元素2指代和包含的片段 过程 函数 变量,均赋给元素1
+  元素=算式 //作为变量赋值计算结果(某一个类型的值),算式中可包含各种运算和函数
+7.函数
+  数学函数 sin() cos() tan() asin() acos() atan() ln()
+  字符串函数 strlen(str)长度 strind(str1,str2)位置 strequ(str1,str2)比较
+            stradd(str1,str2)相连 strsub(str,begin,end)提取
+  元素访问函数 index() //数值和字符串值均可作为参数
+  外部程序调用函数 run(cmd) //参照java.lang.Runtime.exec(cmd)
+  等待函数 wait(time) //参照java.lang.Thread.sleep(time)
+8.运算
+  数学运算 + - * / ^
+  比较运算 > < == >= <=
+  布尔运算 & | !
+9.特殊
+  .片段层次的访问 ,函数参数的分隔 ""变量赋值字符串时使用
+  super指代上层元素 this指代当前元素 index()使用参数指代下层元素
+  main=proce{}程序的入口过程
+10.代码结构
+  源码文件中包含:代码引入语句 片段定义 过程定义 函数定义 等式语句
+  片段piece中包含:片段定义 过程定义 函数定义 等式语句
+  过程proce中包含:输入输出语句 流程控制语句 过程控制语句 等式语句
+  函数funct中包含:输入输出语句 流程控制语句 等式语句
