@@ -1,0 +1,31 @@
+main=proce{
+  enter{//输入积分算式FX至双引号内,变量以X.1,X.2,X.3表示
+//输入变量个数N,初值X.begin.i,末值X.end.i,步长X.step.i
+FX=""
+N=
+X.begin.1=  X.end.1=  X.step.1=
+X.begin.2=  X.end.2=  X.step.2=
+X.begin.3=  X.end.3=  X.step.3=
+  }
+  TEMP="this="  FX=stradd(TEMP,FX)
+  i=1  DX=1  while(i<=N){DX=DX*X.step.index(i) i=i+1}
+  结果=0  this=运算(1)  result{结果}
+}
+运算=funct(n){
+  this=0
+  X.index(n)=X.begin.index(n)
+  if(X.begin.index(n)<X.end.index(n)){
+    while(X.index(n)<X.end.index(n)){
+      if(n<N){this=运算(n+1)}
+      if(n==N){结果=结果+runcode(FX)*DX}
+      X.index(n)=X.index(n)+X.step.index(n)
+    }
+  }
+  if(X.begin.index(n)>X.end.index(n)){
+    while(X.index(n)>X.end.index(n)){
+      if(n<N){this=运算(n+1)}
+      if(n==N){结果=结果+runcode(FX)*DX}
+      X.index(n)=X.index(n)-X.step.index(n)
+    }
+  }
+}
