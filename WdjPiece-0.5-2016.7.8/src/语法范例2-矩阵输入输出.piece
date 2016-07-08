@@ -1,0 +1,24 @@
+main=proce{todo{a.b}}
+a=piece{
+  //输入行列数
+  b=proce{
+    enter{super.M=  super.N=}
+    todo{super.c}
+  }
+  //输入矩阵
+  c=proce{
+    i=0  while(i<super.M){
+      j=0  while(j<super.N){
+        enter{super.index(i).index(j)=}  j=j+1
+      }  i=i+1
+    }  todo{super.d}
+  }
+  //输出矩阵
+  d=proce{
+    i=0  while(i<super.M){
+      j=0  while(j<super.N){
+        result{super.index(i).index(j)}  j=j+1
+      }  i=i+1
+    }
+  }
+}
