@@ -22,6 +22,8 @@ public class DataPool {
 		setFunct("runapp",new String[]{"RUNAPP_PARAME",null});
 		//代码执行函数
 		setFunct("runcode",new String[]{"RUNCODE_PARAME",null});
+		//类加载执行函数
+		setFunct("runclass",new String[]{"JAR_PARAME,CLASS_PARAME,BLOCKorNO_PARAME",null});
 		//等待函数
 		setFunct("wait",new String[]{"WAIT_PARAME",null});
 	}
