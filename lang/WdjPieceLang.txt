@@ -1,30 +1,13 @@
-WdjPiece  0.7.2  2019.2.27
-1.调整优化
-2.增加保留字null
-
-WdjPiece  0.7.1  2019.2.18
-1.调整优化
-
-WdjPiece  0.7  2019.1.30
-1.调整优化
-
-WdjPiece  0.6  2018.2.26
-1.将函数run()更名为runapp()
-2.去除过程控制语句todu{}
-3.增加过程控制语句runnow{过程1 过程2...}
-  把要执行的过程放到执行队列首部
-4.增加过程控制语句runlater{过程1 过程2...}
-  把要执行的过程放到执行队列尾部
-
-WdjPiece  0.5  2016.7.8
+WdjPiece  0.8  2019.3.28
 1.注释 //之后为注释内容,注释中不能包含" "双引号
-2.保留字 include enter entfrom result resulto if while todo
+2.保留字 include enter entfrom result resulto if while
+         piece proce funct super this index main null true false
          sin cos tan asin acos atan ln strlen strind strequ stradd strsub
-         true false piece proce funct super this index run runcode wait main
+         runnow runlater runapp runcode runclass wait
 3.保留符 + - * / ^ > < = & | ! . , " ( ) [ ] { }
 4.元素 出现在=左端的字符串,可同时指代一个片段 一个过程 一个函数 一个变量
   片段 abc=piece{} //作为模块和容器,内部可包含别的片段 过程 函数 变量
-  过程 abc=proce{} //不返回的执行段,使用todo{}语句接力执行
+  过程 abc=proce{} //不返回的执行段,使用runnow{} runlater{}语句接力执行
   函数 abc=funct(){} //会返回的执行段,被调用执行
        //调用abc()时,函数中使用this=XXX语句返回,仅返回变量的值
        //调用abc().out时,函数中使用this.out=XXX语句返回,可返回完整的元素
@@ -34,7 +17,8 @@ WdjPiece  0.5  2016.7.8
   输入输出语句 enter{注释及含待赋值变量的代码段}  entfrom(文件名){变量1 变量2...}
               result{变量1 变量2...}  resulto(文件名){变量1 变量2...}
   流程控制语句 if(条件算式){执行语句}  while(条件算式){循环语句}
-  过程控制语句 todo{下个要执行的过程}
+  过程控制语句 runnow{过程1 过程2...}  //把要执行的过程放到执行队列首部
+  过程控制语句 runlater{过程1 过程2...}  //把要执行的过程放到执行队列尾部
 6.等式语句
   元素=布值 数值 字符串值 //作为变量直接赋值
   元素1=元素2 //将元素2指代和包含的片段 过程 函数 变量,均赋给元素1
@@ -44,8 +28,9 @@ WdjPiece  0.5  2016.7.8
   字符串函数 strlen(str)长度 strind(str1,str2)位置 strequ(str1,str2)比较
             stradd(str1,str2)相连 strsub(str,begin,end)提取
   元素访问函数 index() //数值和字符串值均可作为参数
-  外部程序调用函数 run(cmd) //参照java.lang.Runtime.exec(cmd)
+  外部程序调用函数 runapp(cmd) //参照java.lang.Runtime.exec(cmd)
   代码执行函数 runcode(str) //执行存于变量中的代码段
+  类加载并执行函数 runclass(jarfile,classname,BLOCKorNO) //执行java类中的main函数
   等待函数 wait(time) //参照java.lang.Thread.sleep(time)
 8.运算
   数学运算 + - * / ^
