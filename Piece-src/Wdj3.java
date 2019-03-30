@@ -55,6 +55,15 @@ public class Wdj3 {
 		}
 		//代码执行函数
 		else if(name.equals("runcode"))new Wdj1(DP,"runcode",DP.getStr("RUNCODE_PARAME"));
+		//类加载执行函数
+		else if(name.equals("runclass")){
+			DP.setBool("runclass", false);
+			RunClassThread RCT=new RunClassThread(DP.getStr("JAR_PARAME"),DP.getStr("CLASS_PARAME"));
+			RCT.setContextClassLoader(null);
+			if(DP.getBool("BLOCKorNO_PARAME")) RCT.run();
+			else RCT.start();
+			DP.setBool("runclass", true);
+		}
 		//等待函数
 		else if(name.equals("wait")){
 			DP.setBool("wait", false);
